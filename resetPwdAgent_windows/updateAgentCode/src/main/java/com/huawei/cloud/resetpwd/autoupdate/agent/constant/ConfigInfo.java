@@ -3,7 +3,7 @@ package com.huawei.cloud.resetpwd.autoupdate.agent.constant;
 import com.huawei.cloud.resetpwd.autoupdate.agent.util.PropertiesUtil;
 
 /**
- * Created by hWX467787 on 2017/8/11.
+ * Created by Archers Law <archerslaw@163.com> on 2017/8/11.
  */
 public class ConfigInfo {
     public static final String RESOURCE_PATH = "C:\\CloudResetPwdUpdateAgent\\conf\\resource.properties";
