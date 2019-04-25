@@ -2,7 +2,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Created by q00420768 on 2017/7/1.
+ * Created by Archers Law <archerslaw@163.com> on 2017/7/1.
  */
 public class CloudResetPwdAgent {
 
