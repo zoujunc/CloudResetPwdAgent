@@ -15,7 +15,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
- * Created by hWX467787 on 2017/8/10.
+ * Created by Archers Law <archerslaw@163.com> on 2017/8/10.
  */
 public class ResetPwdAgentOperateThread extends Thread {
     private static Logger logger = LogManager.getLogger(ResetPwdAgentOperateThread.class);
