@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 
 /**
- * Created by hWX467787 on 2017/8/10.
+ * Created by Archers Law <archerslaw@163.com> on 2017/8/10.
  */
 public class ResetPwdUpdateFlowThread extends Thread {
     private static Logger logger = LogManager.getLogger(ResetPwdUpdateFlowThread.class);
