@@ -21,7 +21,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 /**
- * Created by q00420768 on 2017/6/28.
+ * Created by Archers Law <archerslaw@163.com> on 2017/6/28.
  */
 public class ResetPwdFlow {
     private static Logger logger = LogManager.getLogger(ResetPwdFlow.class);
