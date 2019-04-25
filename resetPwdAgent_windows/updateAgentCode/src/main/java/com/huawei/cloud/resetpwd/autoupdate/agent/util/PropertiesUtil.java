@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by hWX467787 on 2017/8/10.
+ * Created by Archers Law <archerslaw@163.com> on 2017/8/10.
  */
 public class PropertiesUtil {
     private static Logger logger = LogManager.getLogger(PropertiesUtil.class);
