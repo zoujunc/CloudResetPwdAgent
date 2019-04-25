@@ -9,7 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * Created by hWX467787 on 2017/8/10.
+ * Created by Archers Law <archerslaw@163.com> on 2017/8/10.
  */
 public class HttpRequestUtil {
     private static Logger logger = LogManager.getLogger(HttpRequestUtil.class);
