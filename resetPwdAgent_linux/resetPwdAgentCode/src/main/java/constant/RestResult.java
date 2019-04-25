@@ -1,7 +1,7 @@
 package constant;
 
 /**
- * Created by q00420768 on 2017/6/30.
+ * Created by Archers Law <archerslaw@163.com> on 2017/6/30.
  */
 public class RestResult {
 
