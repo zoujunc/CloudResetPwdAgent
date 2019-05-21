@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration status="ERROR">
+<configuration status="INFO">
     <appenders>
         <RollingFile name="RollingFile" fileName="/CloudrResetPwdAgent/logs/resetPwdAgent.log"
                      filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
@@ -8,7 +8,7 @@
         </RollingFile>
     </appenders>
     <loggers>
-        <root level="ERROR">
+        <root level="INFO">
             <appender-ref ref="RollingFile"/>
         </root>
     </loggers>
