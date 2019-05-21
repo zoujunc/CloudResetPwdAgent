@@ -160,19 +160,27 @@ public class ObsUrlUtil {
         } catch (MalformedURLException e) {
             logger.error(e);
         }
+        URLConnection connection = null;
+        HttpURLConnection httpURLConnection = null;
         try {
-            URLConnection connection = remoteUrl.openConnection();
-            HttpURLConnection httpURLConnection = (HttpURLConnection) connection;
+            connection = remoteUrl.openConnection();
+            httpURLConnection = (HttpURLConnection) connection;
             httpURLConnection.setRequestProperty("Accept-Charset", charset);
             httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             httpURLConnection.setRequestMethod("GET");
-
+            httpURLConnection.setConnectTimeout(3000);//连接超时 单位毫秒
+            httpURLConnection.setReadTimeout(3000);//读取超时 单位毫秒
+            
             int state = httpURLConnection.getResponseCode();
             if (state == 200) {
                 return true;
             }
         } catch (Exception e) {
             logger.error(e);
+        } finally {
+            if (null != httpURLConnection) {
+                httpURLConnection.disconnect();
+            }
         }
 
         return false;
