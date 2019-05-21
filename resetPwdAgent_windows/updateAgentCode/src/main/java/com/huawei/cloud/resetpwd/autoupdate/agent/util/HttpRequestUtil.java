@@ -17,16 +17,22 @@ public class HttpRequestUtil {
 
     public static String sendGetMethod(String url) throws Exception {
 
-        URL remoteUrl = new URL(url);
-        URLConnection connection = remoteUrl.openConnection();
-        HttpURLConnection httpURLConnection = (HttpURLConnection) connection;
-        httpURLConnection.setRequestProperty("Accept-Charset", charset);
-        httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        httpURLConnection.setRequestMethod("GET");
+        URL remoteUrl = null;
+        URLConnection connection = null;
+        HttpURLConnection httpURLConnection = null;
 
         InputStream inputStream = null;
         String result = null;
         try {
+            remoteUrl = new URL(url);
+            connection = remoteUrl.openConnection();
+            httpURLConnection = (HttpURLConnection) connection;
+            httpURLConnection.setRequestProperty("Accept-Charset", charset);
+            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setConnectTimeout(3000);//连接超时 单位毫秒
+            httpURLConnection.setReadTimeout(3000);//读取超时 单位毫秒
+            
             inputStream = httpURLConnection.getInputStream();
             int count = 0;
             while (count == 0) {
@@ -40,6 +46,9 @@ public class HttpRequestUtil {
         } finally {
             if (null != inputStream) {
                 inputStream.close();
+            }
+            if (null != httpURLConnection) {
+                httpURLConnection.disconnect();
             }
         }
 
