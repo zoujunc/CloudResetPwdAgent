@@ -3,6 +3,7 @@ package com.huawei.cloud.resetpwd.autoupdate.agent.util;
 
 import com.huawei.cloud.resetpwd.autoupdate.agent.constant.ConfigInfo;
 import com.huawei.cloud.resetpwd.autoupdate.agent.constant.RestResult;
+import com.huawei.cloud.resetpwd.autoupdate.agent.util.HttpRequestUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
@@ -162,19 +163,26 @@ public class ObsUrlUtil{
         }catch (MalformedURLException e){
             logger.error(e);
         }
-        try{
-            URLConnection connection = remoteUrl.openConnection();
-            HttpURLConnection httpURLConnection = (HttpURLConnection) connection;
+        URLConnection connection = null;
+        HttpURLConnection httpURLConnection = null;
+        try {
+            connection = remoteUrl.openConnection();
+            httpURLConnection = (HttpURLConnection) connection;
             httpURLConnection.setRequestProperty("Accept-Charset", charset);
             httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             httpURLConnection.setRequestMethod("GET");
-
+            httpURLConnection.setConnectTimeout(3000);//连接超时 单位毫秒
+            httpURLConnection.setReadTimeout(3000);//读取超时 单位毫秒
             int state = httpURLConnection.getResponseCode();
             if (state == 200) {
                 return true;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error(e);
+        } finally {
+            if (null != httpURLConnection) {
+                httpURLConnection.disconnect();
+            }
         }
 
         return false;
